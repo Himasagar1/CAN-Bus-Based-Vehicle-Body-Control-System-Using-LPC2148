@@ -8,19 +8,14 @@ unsigned char headlight_flag = 0, Left_indicator_flag = 0, Right_indicator_flag 
 
 int main()
 {
-    // can1 initialise
     can1_init();
-
-    // external interrupt init
     config_interrupts_init();
     config_vic_eints();
-
-    // can initialisation
     msg1.rtr   = 0;
     msg1.ff    = 0;
     msg1.dataA = 0;
     msg1.dataB = 0;
-
+    
     msg2.rtr   = 0;
     msg2.ff    = 0;
     msg2.dataA = 0;
@@ -40,7 +35,6 @@ int main()
     msg3.id  = 0x503;
     msg3.dlc = 1;
 
-    // logic
     while (1)
     {
         if (ext0_flag == 1)
